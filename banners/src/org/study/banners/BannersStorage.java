@@ -9,18 +9,45 @@ package org.study.banners;
  */
 public class BannersStorage {
     private String[][] bannersArray = new String[5][5];
-    private String[] bannersTopicsArray = new String[] {"Car", "Bikes", "Moto", "PC", "Phones"};
+    private String[] bannersTopicsArray = new String[] {"Car", "Bikes", "Moto", "PC", "Phones","Palm"};
+    private String[] bannerResponseArray;
+    private String topic;
 
+    public String[] getBannerResponseArray() {
+        return bannerResponseArray;
+    }
 
-    public void populateBannersArray(String source){
+    public void setBannerResponseArray(String[] bannerResponseArray) {
+        this.bannerResponseArray = bannerResponseArray;
+    }
+
+    public void getBannerArray(String source){
+        topic = source;
+        if (verifyArray == true){
+
+        }
+
+    }
+
+    public boolean verifyArray(){
+        for(int i = 0; i < bannersArray .length ; i++){
+            for(int j = 0; j < bannersArray[i].length; j++ ){
+
+            }
+        }
+        return true;
+    }
+
+    public void populateBannersArray(){
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < 5; j++){
                 bannersArray[i][j] = String .valueOf(i+j);
                 if (i == 0){
                     bannersArray[i][j] =  bannersTopicsArray[j];
                 }
-                System.out.println(bannersArray[i][j]);
+                //System.out.println(bannersArray[i][j]);
             }
         }
+        System.out.println(topic);
     }
 }
