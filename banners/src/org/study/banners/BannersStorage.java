@@ -23,7 +23,7 @@ public class BannersStorage {
 
     public void getBannerArray(String source){
         topic = source;
-        if (verifyArray == true){
+        if (verifyArray() == true){
 
         }
 
@@ -32,7 +32,9 @@ public class BannersStorage {
     public boolean verifyArray(){
         for(int i = 0; i < bannersArray .length ; i++){
             for(int j = 0; j < bannersArray[i].length; j++ ){
-
+                if (bannersArray[i][j].equals(null)){
+                    return false;
+                }
             }
         }
         return true;
