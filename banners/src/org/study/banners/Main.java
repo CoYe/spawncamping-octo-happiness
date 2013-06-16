@@ -6,6 +6,6 @@ public class Main {
 
     public static void main(String[] args) {
          BannersStorage banners = new BannersStorage();
-         banners.populateBannersArray("Car");
+         banners.getBannersArray("Car");
     }
 }
