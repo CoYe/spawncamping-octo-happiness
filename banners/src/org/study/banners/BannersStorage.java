@@ -9,27 +9,25 @@ package org.study.banners;
  */
 public class BannersStorage {
     private String[][] bannersArray = new String[5][5];
-    private String[] bannersTopicsArray = new String[] {"Car", "Bikes", "Moto", "PC", "Phones","Palm"};
+    public static String[] bannersTopicsArray = new String[] {"Car", "Bikes", "Moto", "PC", "Phones","Palm"};
     private String[] bannerResponseArray;
+
     private String topic;
 
-    public String[] getBannerResponseArray() {
-        return bannerResponseArray;
-    }
-
-    public void setBannerResponseArray(String[] bannerResponseArray) {
-        this.bannerResponseArray = bannerResponseArray;
-    }
-
-    public void getBannerArray(String source){
-        topic = source;
-        if (verifyArray() == true){
-
+    public String[] getBannerArray(String topic){
+        String[] result = new String[] {"0"};
+        if (verifyArray() == false){
+            populateBannersArray();
         }
-
+        for (int i = 0; i < bannersArray.length; i++){
+            if(topic .equalsIgnoreCase(bannersArray[0][i])){
+                result = bannersArray [i];
+            }
+        }
+        return result;
     }
 
-    public boolean verifyArray(){
+    private boolean verifyArray(){
         for(int i = 0; i < bannersArray .length ; i++){
             for(int j = 0; j < bannersArray[i].length; j++ ){
                 if (bannersArray[i][j].equals(null)){
@@ -40,7 +38,7 @@ public class BannersStorage {
         return true;
     }
 
-    public void populateBannersArray(){
+    private void populateBannersArray(){
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < 5; j++){
                 bannersArray[i][j] = String .valueOf(i+j);
