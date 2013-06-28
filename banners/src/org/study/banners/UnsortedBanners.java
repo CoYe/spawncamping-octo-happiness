@@ -7,7 +7,7 @@ package org.study.banners;
  * Time: 20:24
  * To change this template use File | Settings | File Templates.
  */
-public class UnsortedBanners extends AbstractBannersArrayGetter {
+public class UnsortedBanners implements BannersArray {
     public String[] getBannersArray(String[] bannersArray){
         String[] resultArray;
         resultArray = bannersArray;

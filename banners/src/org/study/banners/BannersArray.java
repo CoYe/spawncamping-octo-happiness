@@ -8,7 +8,7 @@ package org.study.banners;
  * To change this template use File | Settings | File Templates.
  */
 public interface BannersArray {
-      String[] getBannersArray(String topicName);
+      String[] getBannersArray(String[] bannersArray);
 
 
 }

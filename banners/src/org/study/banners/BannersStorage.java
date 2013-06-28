@@ -1,5 +1,7 @@
 package org.study.banners;
 
+import java.util.Arrays;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Issa
@@ -8,46 +10,26 @@ package org.study.banners;
  * To change this template use File | Settings | File Templates.
  */
 public class BannersStorage {
-    private String[][] bannersArray = new String[5][5];
-    public static String[] bannersTopicsArray = new String[] {"Car", "Bikes", "Moto", "PC", "Phones","Palm"};
+    private String[][] bannersArray = new String[][] {{"Buick","Cadillac","Chevrolet","Chrysler","Dodge","Dodge Ram",
+            "Fisker","Ford","Fiat","GMC","Hyundai","Jeep","Kia","Lincoln","Tesla","Nissan","Toyota","Volvo"},
+            {"Bianchi","BMC","Corratec","Cannondale","Giant Manufacturing","Hercules","Mongoose","Merida Bikes","Kross","Head","Marin","Kellys"},
+            {"KTM","BMW","Minsk","Peugeot","Kawasaki","Harley-Davidson","Yamaha","Suzuki","Honda","Aprilia","Douglas","Ducati",
+            "Norton","Royal Enfield","Zenith","Hyosung"},
+            {"HP","Dell","Acer","Asus","Packard Bell","BenQ","IBM","Lenovo","LG","Supermicro","Sony"},
+            {"HTC","Apple","Samsung","SonyEricsson","Nokia","Siemens","Alcatel","Motorola","BlackBerry"}};
+
+    public String[] bannersTopicsArray = new String[] {"Car", "Bikes", "Moto", "PC", "SmartPhones"};
     private String[] bannerResponseArray;
-
     private String topic;
-
     public String[] getBannerArray(String topic){
         String[] result = new String[] {"0"};
-        if (verifyArray() == false){
-            populateBannersArray();
-        }
         for (int i = 0; i < bannersArray.length; i++){
-            if(topic .equalsIgnoreCase(bannersArray[0][i])){
-                result = bannersArray [i];
+            if(topic .equalsIgnoreCase(bannersTopicsArray[i])){
+                result = bannersArray[i];
+            } else if (result == null) {
+                Arrays.fill(result,"");
             }
         }
         return result;
-    }
-
-    private boolean verifyArray(){
-        for(int i = 0; i < bannersArray .length ; i++){
-            for(int j = 0; j < bannersArray[i].length; j++ ){
-                if (bannersArray[i][j].equals(null)){
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    private void populateBannersArray(){
-        for(int i = 0; i < 5; i++){
-            for(int j = 0; j < 5; j++){
-                bannersArray[i][j] = String .valueOf(i+j);
-                if (i == 0){
-                    bannersArray[i][j] =  bannersTopicsArray[j];
-                }
-                //System.out.println(bannersArray[i][j]);
-            }
-        }
-        System.out.println(topic);
     }
 }
