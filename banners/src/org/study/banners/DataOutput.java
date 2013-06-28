@@ -29,15 +29,17 @@ public class DataOutput {
         }
     }
 
-    private void printBannerArray(int orientation, int amount) {
+    private void printBannerArray(int amount, int orientation) {
         boolean isActive = true;
         String result = "";
         int i = 0;
+        int j = 0;
         while (isActive ){
             if (i == banners.length ){
-                i = -1;
+                i = 0;
             }
-            if (i == amount){
+//            System.out.println(amount%i);
+            if (j != 0 && j != 1 && j%amount == 0){
                 System.out.println(result);
                 result = "";
                 isActive = refreshArray();
@@ -52,6 +54,7 @@ public class DataOutput {
                 }
             }
             i++;
+            j++;
         }
     }
 
