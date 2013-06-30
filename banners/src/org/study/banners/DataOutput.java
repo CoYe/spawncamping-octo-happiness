@@ -11,11 +11,7 @@ import java.util.Scanner;
  * To change this template use File | Settings | File Templates.
  */
 public class DataOutput {
-    public String[] banners;
-
-    public String[] getBanners() {
-        return banners;
-    }
+    private String[] banners;
 
     public void setBanners(String[] banners) {
         this.banners = banners;
@@ -44,7 +40,7 @@ public class DataOutput {
                 result = "";
                 isActive = refreshArray();
             }
-            if (result == ""){
+            if ("".equals(result)){
                 result = banners[i];
             } else {
                 if (orientation == 1){
@@ -63,10 +59,6 @@ public class DataOutput {
         Scanner input = new Scanner(System .in);
         System.out.println("Refresh (yes/no)");
         refresh = input.nextLine();
-        if ("yes".equalsIgnoreCase(refresh)){
-            return true;
-        } else {
-            return false;
-        }
+        return "yes".equalsIgnoreCase(refresh);
     }
 }

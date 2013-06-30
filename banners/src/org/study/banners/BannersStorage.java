@@ -19,8 +19,8 @@ public class BannersStorage {
             {"HTC","Apple","Samsung","SonyEricsson","Nokia","Siemens","Alcatel","Motorola","BlackBerry"}};
 
     public String[] bannersTopicsArray = new String[] {"Car", "Bikes", "Moto", "PC", "SmartPhones"};
-    private String[] bannerResponseArray;
-    private String topic;
+    // --Commented out by Inspection (28.06.13 22:51):private String[] bannerResponseArray;
+    // --Commented out by Inspection (28.06.13 22:51):private String topic;
     public String[] getBannerArray(String topic){
         String[] result = new String[] {"0"};
         for (int i = 0; i < bannersArray.length; i++){

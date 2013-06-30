@@ -11,8 +11,8 @@ import java.util.Scanner;
  * To change this template use File | Settings | File Templates.
  */
 public class DataInput {
-    DataOutput dataOutput = new DataOutput() ;
-    String[] result;
+    private DataOutput dataOutput = new DataOutput() ;
+    private BannersArray banenrsArray;
 
     public void showUserSelect() {
         BannersStorage bannersStorage = new BannersStorage();
@@ -31,30 +31,20 @@ public class DataInput {
         bannersOrientation  = input.nextInt();
         System.out.println("Choose amount of banners:");
         amountOfBanners = input.nextInt();
+
         bannersArray = bannersStorage.getBannerArray(topicQuery);
+
+
+
         if (arrayOutputType == 1){
-            getMixedBannersArray(bannersArray);
+            banenrsArray = new MixedBanners();
         } else if (arrayOutputType == 2){
-            getSortedBannersArray(bannersArray);
+            banenrsArray = new SortedBanners();
         } else {
-            getNormalBannersArray(bannersArray);
+            banenrsArray = new UnsortedBanners();
         }
+        String[] result = banenrsArray.getBannersArray(bannersArray);
         dataOutput.setBanners(result);
         dataOutput.printBanners(amountOfBanners,bannersOrientation) ;
-    }
-
-    private void getMixedBannersArray(String[] bannersArray) {
-        MixedBanners mixedBanners = new MixedBanners();
-        result = mixedBanners.getBannersArray(bannersArray);
-    }
-
-    private void getSortedBannersArray(String[] bannersArray) {
-        SortedBanners sortedBanners = new SortedBanners();
-        result = sortedBanners.getBannersArray(bannersArray);
-    }
-
-    private void getNormalBannersArray(String[] bannersArray) {
-        MixedBanners mixedBanners = new MixedBanners();
-        result = mixedBanners.getBannersArray(bannersArray);
     }
 }
