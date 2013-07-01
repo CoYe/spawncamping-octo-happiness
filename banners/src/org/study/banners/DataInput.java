@@ -11,17 +11,32 @@ import java.util.Scanner;
  * To change this template use File | Settings | File Templates.
  */
 public class DataInput {
-    private DataOutput dataOutput = new DataOutput() ;
-    private BannersArray banenrsArray;
+    private String topicQuery;
+    private int arrayOutputType;
+    private int bannersOrientation;
+    private int amountOfBanners;
+    private String[] bannersArray;
+
+    public int getArrayOutputType() {
+        return arrayOutputType;
+    }
+
+    public int getBannersOrientation() {
+        return bannersOrientation;
+    }
+
+    public int getAmountOfBanners() {
+        return amountOfBanners;
+    }
+
+    public String[] getBannersArray() {
+        return bannersArray;
+    }
+
+
 
     public void showUserSelect() {
         BannersStorage bannersStorage = new BannersStorage();
-        String topicQuery;
-        int arrayOutputType;
-        int bannersOrientation;
-        int amountOfBanners;
-        String[] bannersArray;
-
         System.out.println("Enter one of the following topics:\n" + Arrays .deepToString(bannersStorage.bannersTopicsArray) );
         Scanner input = new Scanner(System.in);
         topicQuery = input.nextLine();
@@ -34,17 +49,5 @@ public class DataInput {
 
         bannersArray = bannersStorage.getBannerArray(topicQuery);
 
-
-
-        if (arrayOutputType == 1){
-            banenrsArray = new MixedBanners();
-        } else if (arrayOutputType == 2){
-            banenrsArray = new SortedBanners();
-        } else {
-            banenrsArray = new UnsortedBanners();
-        }
-        String[] result = banenrsArray.getBannersArray(bannersArray);
-        dataOutput.setBanners(result);
-        dataOutput.printBanners(amountOfBanners,bannersOrientation) ;
     }
 }
